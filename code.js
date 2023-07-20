@@ -12,7 +12,11 @@ function playRound(playerSelection, computerSelection) {
     let result = '';
     let winner = '';
 
-    if (playerSelection === computerSelection) result = `Draw! Both picked ${playerSelection}`;
+    if (playerSelection === computerSelection) {
+        result = `Draw! Both picked ${playerSelection.toLowerCase()}`;
+        winner = 'None';
+        return [result, winner];
+    }
     else if (playerSelection === 'Rock') winner = (computerSelection === 'Paper') ? 'Computer' : 'Player';
     else if (playerSelection === 'Paper') winner = (computerSelection === 'Scissors') ? 'Computer' : 'Player';
     else if (playerSelection === 'Scissors') winner = (computerSelection === 'Rock') ? 'Computer' : 'Player';
@@ -22,14 +26,26 @@ function playRound(playerSelection, computerSelection) {
     return [result, winner]; 
 }   
 
-let playerInput = prompt('Pick rock, paper, or scissors').toLowerCase();
-let playerSelection = playerInput.charAt(0).toUpperCase() + playerInput.slice(1);
-let computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection)[0]);
 
 // 5 rounds, that keeps track of scores. Shows winner at the end
 function game() {
+    
+    let computer = 0;
+    let player = 0;
+
     for (let i = 0; i < 5; i++) {
-        // Code
+        let playerInput = prompt('Pick rock, paper, or scissors').toLowerCase();
+        let playerSelection = playerInput.charAt(0).toUpperCase() + playerInput.slice(1);
+        let computerSelection = getComputerChoice();
+        let result = playRound(playerSelection, computerSelection);
+        console.log(result[0])
+        if (result[1] === 'Player') player++;
+        else if (result[1] === 'Computer') computer++;
     }
+
+    if (computer === player) console.log(`It's a tie! ${computer}-${player}`);
+    else if (computer > player) console.log(`Computer wins! ${computer}-${player}`);
+    else console.log(`Player wins! ${player}-${computer}`);
 }
+
+game();
