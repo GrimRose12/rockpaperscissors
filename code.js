@@ -21,11 +21,12 @@ function playRound(playerSelection, computerSelection) {
         result = '${winner} wins! ${computerSelection} wins against ${playerSelection}'
     }
     result = (winner === 'Player') ? '${winner} wins! ${playerSelection} wins against ${computerSelection}' : '${winner} wins! ${computerSelection} wins against ${playerSelection}';
-    
+
     return [result, winner]; 
 }   
 
-let playerSelection = ''; // Get user input
+let playerInput = prompt('Pick rock, paper, or scissors').toLowerCase();
+let playerSelection = playerInput.charAt(0).toUpperCase + playerInput.slice(1);
 let computerSelection = getComputerChoice();
 console.log(playRound(playerSelection, computerSelection));
 
