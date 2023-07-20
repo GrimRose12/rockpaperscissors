@@ -9,7 +9,7 @@ function getComputerChoice(){
 
 // Return string on who wins and what choices were made
 function playRound(playerSelection, computerSelection) {
-    const result = '';
+    let result = '';
     let winner = '';
 
     if (playerSelection === computerSelection) result = 'Draw! Both picked ${playerSelection}';
