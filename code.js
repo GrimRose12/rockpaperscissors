@@ -12,12 +12,12 @@ function playRound(playerSelection, computerSelection) {
     let result = '';
     let winner = '';
 
-    if (playerSelection === computerSelection) result = 'Draw! Both picked ${playerSelection}';
+    if (playerSelection === computerSelection) result = `Draw! Both picked ${playerSelection}`;
     else if (playerSelection === 'Rock') winner = (computerSelection === 'Paper') ? 'Computer' : 'Player';
     else if (playerSelection === 'Paper') winner = (computerSelection === 'Scissors') ? 'Computer' : 'Player';
     else if (playerSelection === 'Scissors') winner = (computerSelection === 'Rock') ? 'Computer' : 'Player';
 
-    result = (winner === 'Player') ? '${winner} wins! ${playerSelection} wins against ${computerSelection}' : '${winner} wins! ${computerSelection} wins against ${playerSelection}';
+    result = (winner === 'Player') ? `${winner} wins! ${playerSelection} wins against ${computerSelection}` : `${winner} wins! ${computerSelection} wins against ${playerSelection}`;
 
     return [result, winner]; 
 }   
