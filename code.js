@@ -17,7 +17,7 @@ function playRound(playerSelection, computerSelection) {
     else if (playerSelection === 'Paper') winner = (computerSelection === 'Scissors') ? 'Computer' : 'Player';
     else if (playerSelection === 'Scissors') winner = (computerSelection === 'Rock') ? 'Computer' : 'Player';
 
-    result = (winner === 'Player') ? `${winner} wins! ${playerSelection} wins against ${computerSelection}` : `${winner} wins! ${computerSelection} wins against ${playerSelection}`;
+    result = (winner === 'Player') ? `${winner} wins! ${playerSelection} wins against ${computerSelection.toLowerCase()}` : `${winner} wins! ${computerSelection} wins against ${playerSelection.toLowerCase()}`;
 
     return [result, winner]; 
 }   
