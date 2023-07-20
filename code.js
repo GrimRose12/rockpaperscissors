@@ -23,9 +23,9 @@ function playRound(playerSelection, computerSelection) {
 }   
 
 let playerInput = prompt('Pick rock, paper, or scissors').toLowerCase();
-let playerSelection = playerInput.charAt(0).toUpperCase + playerInput.slice(1);
+let playerSelection = playerInput.charAt(0).toUpperCase() + playerInput.slice(1);
 let computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+console.log(playRound(playerSelection, computerSelection)[0]);
 
 // 5 rounds, that keeps track of scores. Shows winner at the end
 function game() {
