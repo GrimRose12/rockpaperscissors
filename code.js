@@ -1,4 +1,5 @@
-
+let computer = 0;
+let player = 0;
 
 // Randomnly return 'rock', 'paper', or 'scissors'
 function getComputerChoice(){
@@ -31,9 +32,9 @@ function playRound(playerSelection, computerSelection) {
 // 5 rounds, that keeps track of scores. Shows winner at the end
 function game(playerInput) {
     const res = document.querySelector('.result');
-    let computer = 0;
-    let player = 0;
-
+    const playerScore = document.querySelector('.score .player');
+    const computerScore = document.querySelector('.score .computer');
+    
     let playerSelection = playerInput.charAt(0).toUpperCase() + playerInput.slice(1);
     let computerSelection = getComputerChoice();
     let result = playRound(playerSelection, computerSelection);
@@ -42,7 +43,10 @@ function game(playerInput) {
     if (result[1] === 'Player') player++;
     else if (result[1] === 'Computer') computer++;
 
+    playerScore.textContent = player;
+    computerScore.textContent = computer;
 
+    
     // if (computer === player) console.log(`It's a tie! ${computer}-${player}`);
     // else if (computer > player) console.log(`Computer wins! ${computer}-${player}`);
     // else console.log(`Player wins! ${player}-${computer}`);
