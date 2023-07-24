@@ -34,6 +34,7 @@ function game(playerInput) {
     const res = document.querySelector('.result');
     const playerScore = document.querySelector('.score .player');
     const computerScore = document.querySelector('.score .computer');
+    const finalRes = document.querySelector('.final-result');
     
     let playerSelection = playerInput.charAt(0).toUpperCase() + playerInput.slice(1);
     let computerSelection = getComputerChoice();
@@ -46,15 +47,19 @@ function game(playerInput) {
     playerScore.textContent = player;
     computerScore.textContent = computer;
 
-    
-    // if (computer === player) console.log(`It's a tie! ${computer}-${player}`);
-    // else if (computer > player) console.log(`Computer wins! ${computer}-${player}`);
-    // else console.log(`Player wins! ${player}-${computer}`);
+    if (player === 5) {
+        finalRes.textContent = 'Player is first to reach 5 wins!';
+        player = 0;
+        computer = 0;
+    }
+    else if (computer === 5) {
+        finalRes.textContent = 'Computer is first to reach 5 wins!'
+        player = 0;
+        computer = 0;
+    }
 }
-
 
 const btn = document.querySelectorAll('.button');
 
 btn.forEach(button => button.addEventListener('click', function () {
     game(button.parentElement.className)}))
-    //() => console.log(button.parentElement.className)))
