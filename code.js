@@ -30,14 +30,15 @@ function playRound(playerSelection, computerSelection) {
 
 // 5 rounds, that keeps track of scores. Shows winner at the end
 function game(playerInput) {
-    
+    const res = document.querySelector('.result');
     let computer = 0;
     let player = 0;
 
     let playerSelection = playerInput.charAt(0).toUpperCase() + playerInput.slice(1);
     let computerSelection = getComputerChoice();
     let result = playRound(playerSelection, computerSelection);
-    console.log(result[0])
+    //console.log(result[0])
+    res.textContent = result[0];
     if (result[1] === 'Player') player++;
     else if (result[1] === 'Computer') computer++;
 
