@@ -1,4 +1,5 @@
 
+
 // Randomnly return 'rock', 'paper', or 'scissors'
 function getComputerChoice(){
     const choose = Math.floor(Math.random()*3);
@@ -28,24 +29,27 @@ function playRound(playerSelection, computerSelection) {
 
 
 // 5 rounds, that keeps track of scores. Shows winner at the end
-function game() {
+function game(playerInput) {
     
     let computer = 0;
     let player = 0;
 
-    for (let i = 0; i < 5; i++) {
-        let playerInput = prompt('Pick rock, paper, or scissors').toLowerCase();
-        let playerSelection = playerInput.charAt(0).toUpperCase() + playerInput.slice(1);
-        let computerSelection = getComputerChoice();
-        let result = playRound(playerSelection, computerSelection);
-        console.log(result[0])
-        if (result[1] === 'Player') player++;
-        else if (result[1] === 'Computer') computer++;
-    }
+    let playerSelection = playerInput.charAt(0).toUpperCase() + playerInput.slice(1);
+    let computerSelection = getComputerChoice();
+    let result = playRound(playerSelection, computerSelection);
+    console.log(result[0])
+    if (result[1] === 'Player') player++;
+    else if (result[1] === 'Computer') computer++;
 
-    if (computer === player) console.log(`It's a tie! ${computer}-${player}`);
-    else if (computer > player) console.log(`Computer wins! ${computer}-${player}`);
-    else console.log(`Player wins! ${player}-${computer}`);
+
+    // if (computer === player) console.log(`It's a tie! ${computer}-${player}`);
+    // else if (computer > player) console.log(`Computer wins! ${computer}-${player}`);
+    // else console.log(`Player wins! ${player}-${computer}`);
 }
 
-game();
+
+const btn = document.querySelectorAll('.button');
+
+btn.forEach(button => button.addEventListener('click', function () {
+    game(button.parentElement.className)}))
+    //() => console.log(button.parentElement.className)))
